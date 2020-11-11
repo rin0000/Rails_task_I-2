@@ -1,18 +1,17 @@
 class UsersController < ApplicationController
-#新規作成画面に対応するアクション
+
   def index
     @users = User.all
-  end  
+  end 
 
   def new
-    @user = User.new
+   @user = User.new
   end
 
   def create
-    User.create(user_params)
-    redirect_to action: :index
+   User.create(user_params)
   end
-  
+
   def edit
     @user = User.find(params[:id])
   end
@@ -20,13 +19,11 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
-    redirect_to action: :index
   end
 
   def destroy
     user = User.find(params[:id])
     user.destroy
-    redirect_to action: :index
   end
 
   private
@@ -34,3 +31,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :age)
   end
 end
+  
+
+  
+
+  
+
+  
